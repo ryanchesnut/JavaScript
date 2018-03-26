@@ -66,3 +66,17 @@ function largestOfFour(arr) {
   return maxArray;
 }
 
+function confirmEnding(str, target) {
+  var startString = str.length -target.length;
+  var endString = str.length;
+  if (target == str.substring(startString,endString)){
+    return true; 
+  } 
+  return false;
+}
+
+
+
+
+
+
