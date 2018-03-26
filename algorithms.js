@@ -88,7 +88,21 @@ function repeatStringNumTimes(str, num) {
     }
     return compiledString; 
   }
+}
 
+function truncateString(str, num) {
+  var truncatedString = ""; 
+  if(str.length > num){
+      if(num <= 3){
+        truncatedString = str.slice(0, num);
+      }
+      else{
+        truncatedString = str.slice(0, num -3);
+      }
+      truncatedString += "...";
+    return truncatedString;
+  }
+  return str;
 }
 
 
