@@ -29,3 +29,26 @@ function palindrome(str) {
     return true;
 }
 
+function findLongestWord(str) {
+    str = str.split(" ");
+    var longestStringLength = 0;
+    for (var i = 0; i < str.length; i++) {
+        if (str[i].length > longestStringLength) {
+            longestStringLength = str[i].length;
+        }
+    }
+    return longestStringLength;
+}
+
+function titleCase(str) {
+    str = str.toLowerCase();
+    str = str.split(" ");
+    for (var i = 0; i < str.length; i++) {
+        var letterUpperCase = str[i].split("");
+        letterUpperCase[0] = letterUpperCase[0].toUpperCase();
+        str[i] = letterUpperCase.join("");
+    }
+    str = str.join(" ");
+    return str;
+}
+
