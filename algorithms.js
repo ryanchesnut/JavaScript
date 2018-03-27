@@ -53,57 +53,86 @@ function titleCase(str) {
 }
 
 function largestOfFour(arr) {
-  var maxArray = []; 
-  for(var i = 0; i < arr.length; i++){
-    var maxNumber = 0;
-    for(var j = 0; j < arr[i].length; j++){
-      if ( arr[i][j] > maxNumber){
-        maxNumber =  arr[i][j];
-        maxArray[i] = maxNumber; 
-      }
+    var maxArray = [];
+    for (var i = 0; i < arr.length; i++) {
+        var maxNumber = 0;
+        for (var j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] > maxNumber) {
+                maxNumber = arr[i][j];
+                maxArray[i] = maxNumber;
+            }
+        }
     }
-  }
-  return maxArray;
+    return maxArray;
 }
 
 function confirmEnding(str, target) {
-  var startString = str.length -target.length;
-  var endString = str.length;
-  if (target == str.substring(startString,endString)){
-    return true; 
-  } 
-  return false;
+    var startString = str.length - target.length;
+    var endString = str.length;
+    if (target == str.substring(startString, endString)) {
+        return true;
+    }
+    return false;
 }
 
 
 function repeatStringNumTimes(str, num) {
-  // repeat after me
-  var compiledString = ""; 
-  if( num < 0){
-    return ""; 
-  }
-  else{
-    for(var i = 0; i < num; i++){
-      compiledString += str; 
+    // repeat after me
+    var compiledString = "";
+    if (num < 0) {
+        return "";
     }
-    return compiledString; 
-  }
+    else {
+        for (var i = 0; i < num; i++) {
+            compiledString += str;
+        }
+        return compiledString;
+    }
 }
 
 function truncateString(str, num) {
-  var truncatedString = ""; 
-  if(str.length > num){
-      if(num <= 3){
-        truncatedString = str.slice(0, num);
-      }
-      else{
-        truncatedString = str.slice(0, num -3);
-      }
-      truncatedString += "...";
-    return truncatedString;
-  }
-  return str;
+    var truncatedString = "";
+    if (str.length > num) {
+        if (num <= 3) {
+            truncatedString = str.slice(0, num);
+        }
+        else {
+            truncatedString = str.slice(0, num - 3);
+        }
+        truncatedString += "...";
+        return truncatedString;
+    }
+    return str;
 }
 
+function chunkArrayInGroups(arr, size) {
+    var tempArray = [];
+    var end = size;
+    for (var i = 0; i < arr.length; i += size) {
+        tempArray.push(arr.slice(i, end));
+        end += size;
+    }
+    arr = tempArray;
+    return arr;
+}
+
+function slasher(arr, howMany) {
+    for (var i = 0; i < howMany; i++) {
+        arr.splice(0, 1);
+    }
+    return arr;
+}
+
+
+function mutation(arr) {
+    var compareArray = arr[1].toLowerCase().split("");
+    for (var i = 0; i < compareArray.length; i++) {
+        var letterFound = arr[0].toLowerCase().indexOf(compareArray[i]);
+        if (letterFound < 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 
