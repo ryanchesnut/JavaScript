@@ -1,4 +1,6 @@
 
+
+// Factorial 
 function factorialize(num) {
     var product = 1;
     for (var i = num; i > 1; i--) {
@@ -7,6 +9,7 @@ function factorialize(num) {
     return product;
 }
 
+// Reverse a string
 function reverseString(str) {
     strArray = str.split("");
     tempArray = strArray.reverse();
@@ -14,6 +17,7 @@ function reverseString(str) {
     return str;
 }
 
+// Check for palindromes
 function palindrome(str) {
     str = str.toLowerCase();
     str = str.replace(/\s|_|\.|,|-|\(|\)|\\|\/|\||:|/g, '');
@@ -29,6 +33,7 @@ function palindrome(str) {
     return true;
 }
 
+// Find the longest word in a string
 function findLongestWord(str) {
     str = str.split(" ");
     var longestStringLength = 0;
@@ -40,6 +45,7 @@ function findLongestWord(str) {
     return longestStringLength;
 }
 
+// Title case a sentence 
 function titleCase(str) {
     str = str.toLowerCase();
     str = str.split(" ");
@@ -52,6 +58,7 @@ function titleCase(str) {
     return str;
 }
 
+// Return largest numbers in arrays 
 function largestOfFour(arr) {
     var maxArray = [];
     for (var i = 0; i < arr.length; i++) {
@@ -66,6 +73,7 @@ function largestOfFour(arr) {
     return maxArray;
 }
 
+// Confirm the ending 
 function confirmEnding(str, target) {
     var startString = str.length - target.length;
     var endString = str.length;
@@ -75,7 +83,7 @@ function confirmEnding(str, target) {
     return false;
 }
 
-
+// Repeat a string, repeat a string 
 function repeatStringNumTimes(str, num) {
     // repeat after me
     var compiledString = "";
@@ -90,6 +98,7 @@ function repeatStringNumTimes(str, num) {
     }
 }
 
+//Truncate a string 
 function truncateString(str, num) {
     var truncatedString = "";
     if (str.length > num) {
@@ -105,6 +114,7 @@ function truncateString(str, num) {
     return str;
 }
 
+// Chunky Monkey 
 function chunkArrayInGroups(arr, size) {
     var tempArray = [];
     var end = size;
@@ -116,6 +126,7 @@ function chunkArrayInGroups(arr, size) {
     return arr;
 }
 
+// Slasher Flick 
 function slasher(arr, howMany) {
     for (var i = 0; i < howMany; i++) {
         arr.splice(0, 1);
@@ -123,7 +134,7 @@ function slasher(arr, howMany) {
     return arr;
 }
 
-
+// Mutations 
 function mutation(arr) {
     var compareArray = arr[1].toLowerCase().split("");
     for (var i = 0; i < compareArray.length; i++) {
@@ -134,5 +145,46 @@ function mutation(arr) {
     }
     return true;
 }
+
+
+// Falsy Bouncer 
+function bouncer(arr) {
+    arr = arr.filter(isInFalsyArray);
+    return arr;
+}
+
+function isInFalsyArray(element) {
+    var falsyArray = [false, null, 0, "", undefined, NaN];
+    if (falsyArray.includes(element)) {
+        return false;
+    }
+
+    return true;
+}
+
+
+
+// Seek and Destroy
+var filterArguments = [];
+
+function destroyer(arr) {
+    for (var i = 1; i < arr.length; i++) {
+        if (arguments[i] !== undefined) {
+            filterArguments[i - 1] = arguments[i];
+        }
+    }
+    var filteredArray = arguments[0].filter(isInArray);
+    return filteredArray;
+}
+
+function isInArray(element) {
+    if (filterArguments.includes(element)) {
+        return false;
+    }
+    return true;
+}
+
+
+
 
 
