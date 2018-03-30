@@ -184,6 +184,48 @@ function isInArray(element) {
     return true;
 }
 
+// Where do I belong 
+
+function getIndexToIns(arr, num) {
+    arr = arr.sort(function (a, b) {
+        return a - b;
+    });
+    var i = 0;
+    while (arr[i] < num) {
+        i++;
+    }
+    return i;
+}
+
+
+
+// Caesars Cipher 
+
+function rot13(str) {
+    var deCodedChar = "";
+    var deCodedString = "";
+    var letterANumber = 65;
+    var letterZNumber = 90;
+
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) >= letterANumber && str.charCodeAt(i) <= letterZNumber) {
+            lower = str.charCodeAt(i) - letterANumber;
+            upper = str.charCodeAt(i) - letterZNumber;
+            if (lower < 13) {
+                deCodedChar = letterZNumber - (12 - lower);
+            } 
+            else {
+                deCodedChar = str.charCodeAt(i) - 13;
+            }
+            deCodedString += String.fromCharCode(deCodedChar);
+        }
+        else {
+            deCodedString += String.fromCharCode(str.charCodeAt(i));
+        }
+    }
+    return deCodedString;
+}
+
 
 
 
