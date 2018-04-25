@@ -172,3 +172,27 @@ function findOnes(num) {
 //=======================================
 
 
+// Wherefore art thou
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+    var matches;
+    for (var i = 0; i < collection.length; i++) {
+        var keys = Object.keys(source);
+        for (var j = 0; j < keys.length; j++) {
+            matches = true;
+            console.log(source[keys[j]] + " == " + collection[i][keys[j]]);
+            if (source[keys[j]] !== collection[i][keys[j]]) {
+                matches = false;
+            }
+        }
+        if (matches) {
+            arr.push(collection[i]);
+        }
+
+    }
+    return arr;
+}
+
+
