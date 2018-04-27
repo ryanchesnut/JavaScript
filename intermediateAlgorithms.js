@@ -174,9 +174,7 @@ function findOnes(num) {
 
 // Wherefore art thou
 function whatIsInAName(collection, source) {
-    // What's in a name?
     var arr = [];
-    // Only change code below this line
     var matches;
     for (var i = 0; i < collection.length; i++) {
         var keys = Object.keys(source);
@@ -195,4 +193,120 @@ function whatIsInAName(collection, source) {
     return arr;
 }
 
+// Search and Replace
 
+function myReplace(str, before, after) {
+    str = str.split(' ');
+    var index = str.indexOf(before);
+
+    if (before[0] == before[0].toUpperCase()) {
+        after = after.split('');
+        after.splice(0, 1, after[0].toUpperCase());
+        after = after.join('');
+    }
+    else {
+        after = after.split('');
+        after.splice(0, 1, after[0].toLowerCase());
+        after = after.join('');
+    }
+
+    str.splice(index, 1, after);
+    str = str.join(" ");
+    return str;
+}
+
+// Pig Latin 
+
+//=======================================
+
+function translatePigLatin(str) {
+
+    if (isConsonant(str[0])) {
+        str = str.split('');
+        var i = 0;
+
+        while (isConsonant(str[0])) {
+            var consonant = str[0];
+            str.push(consonant);
+            str.shift();
+        }
+
+        str = str.join('') + 'ay';
+    }
+    else {
+        str = str + 'way';
+    }
+    return str;
+}
+
+
+function isConsonant(char) {
+    char = char.toLowerCase();
+    switch (char) {
+        case 'a':
+            return false;
+        case 'e':
+            return false;
+        case 'i':
+            return false;
+        case 'o':
+            return false;
+        case 'u':
+            return false;
+        case 'y':
+            return false;
+        default:
+            return true;
+    }
+
+}
+
+//=======================================
+
+// DNA Pairing
+
+function pairElement(str) {
+    str = str.split('');
+    var finalArray = [];
+
+    for (var i = 0; i < str.length; i++) {
+        var pairArray = [];
+        pairArray.push(str[i]);
+        pairArray.push(matchPair(str[i]));
+        finalArray.push(pairArray);
+    }
+    return finalArray;
+}
+
+function matchPair(element) {
+    switch (element) {
+        case 'A':
+            return 'T';
+        case 'T':
+            return 'A';
+        case 'C':
+            return 'G';
+        case 'G':
+            return 'C';
+        default:
+            return null;
+    }
+}
+
+//=======================================
+
+// Missing letters
+
+function fearNotLetter(str) {
+    for (var i = 0; i < str.length; i++) {
+        if (str.charCodeAt(i) + 1 !== str.charCodeAt(i + 1) && i !== str.length - 1) {
+            console.log(String.fromCharCode(str.charCodeAt(i) + 1));
+            return String.fromCharCode(str.charCodeAt(i) + 1);
+        }
+    }
+
+    return undefined;
+}
+
+
+//=======================================
