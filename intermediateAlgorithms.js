@@ -310,3 +310,33 @@ function fearNotLetter(str) {
 
 
 //=======================================
+
+// Boo who
+
+function booWho(bool) {
+
+    if (typeof (bool) === 'boolean') {
+        return true
+    }
+
+    return false;
+}
+
+//=======================================
+
+// Sorted Union
+
+function uniteUnique(arr) {
+    arr = Array.from(arguments);
+    var finalArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 0; j < arr[i].length; j++) {
+            if (finalArr.indexOf(arr[i][j]) == -1) {
+                finalArr.push(arr[i][j]);
+            }
+        }
+    }
+    return finalArr;
+}
+
+//=======================================
