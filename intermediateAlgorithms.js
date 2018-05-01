@@ -424,7 +424,7 @@ function isPrime(num) {
 
 //=======================================
 
-
+// Smallest Common Multiple
 
 function smallestCommons(arr) {
     arr = Array.from(arguments);
@@ -441,32 +441,44 @@ function smallestCommons(arr) {
         start = arr[0][0];
         end = arr[0][1];
     }
-
     startNumber = start * end;
-
     while (!numberFound) {
-
         for (var i = start; i <= end; i++) {
-            console.log(startNumber);
             if (startNumber % i !== 0) {
                 break;
             }
             if (i == end) {
                 endNumber = startNumber;
                 numberFound = true;
-
             }
-
         }
         startNumber++;
-
     }
-    console.log(endNumber);
     return endNumber;
 }
 
+//=======================================
 
-smallestCommons([1, 13]);
+// Finders Keepers
+
+function findElement(arr, func) {
+    var num;
+    var firstInst = false;
+    arr.filter(function (val) {
+
+        console.log(val);
+        if (func(val) && !firstInst) {
+
+            console.log(func(val), val);
+            firstInst = true;
+            num = val;
+        }
+
+    });
 
 
+    console.log('');
+    return num;
+}
 
+//=======================================
