@@ -340,3 +340,133 @@ function uniteUnique(arr) {
 }
 
 //=======================================
+
+// Convert HTML Entities
+function convertHTML(str) {
+    // &colon;&rpar;
+
+    str = str.replace(/&/g, '&amp;');
+    str = str.replace(/</g, '&lt;');
+    str = str.replace(/>/g, '&gt;');
+    str = str.replace(/"/g, '&quot;');
+    str = str.replace(/'/g, '&apos;');
+
+    return str;
+}
+
+
+//=======================================
+
+// Spinal Tap Case
+
+function spinalCase(str) {
+    str = str.replace(/ /g, '-');
+    str = str.replace(/_/g, '-');
+    str = str.split('');
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] == str[i].toUpperCase()) {
+            str[i] = str[i].toLowerCase();
+            if (i > 0 && str[i - 1] !== '-' && str[i] !== '-') {
+                str.splice(i, 0, '-');
+            }
+        }
+    }
+    str = str.join('');
+    return str;
+}
+
+//=======================================
+
+// Sum All Odd Fibonacci Numbers
+
+function sumFibs(num) {
+
+    var num1 = 1;
+    var num2 = 1;
+    var sum = 0;
+    var oddTotal = 0;
+
+    while (num1 <= num) {
+        sum = num1 + num2;
+        if ((num1 % 2) == 1) {
+            oddTotal += num1;
+        }
+        num1 = num2;
+        num2 = sum;
+    }
+
+    return oddTotal;
+}
+
+//=======================================
+
+// Sum All Primes
+
+function sumPrimes(num) {
+    var sum = 0;
+    for (var i = 2; i <= num; i++) {
+        if (isPrime(i)) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+
+function isPrime(num) {
+    var upperBound = num;
+    for (var i = 2; i < upperBound - 1; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+//=======================================
+
+
+
+function smallestCommons(arr) {
+    arr = Array.from(arguments);
+    var start = 0;
+    var end = 0;
+    var startNumber = 0;
+    var numberFound = false;
+    var endNumber = 0;
+    if (arr[0][0] > arr[0][1]) {
+        start = arr[0][1];
+        end = arr[0][0];
+    }
+    else {
+        start = arr[0][0];
+        end = arr[0][1];
+    }
+
+    startNumber = start * end;
+
+    while (!numberFound) {
+
+        for (var i = start; i <= end; i++) {
+            console.log(startNumber);
+            if (startNumber % i !== 0) {
+                break;
+            }
+            if (i == end) {
+                endNumber = startNumber;
+                numberFound = true;
+
+            }
+
+        }
+        startNumber++;
+
+    }
+    console.log(endNumber);
+    return endNumber;
+}
+
+
+smallestCommons([1, 13]);
+
+
+
