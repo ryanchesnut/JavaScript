@@ -476,9 +476,24 @@ function findElement(arr, func) {
 
     });
 
-
-    console.log('');
     return num;
 }
 
 //=======================================
+
+// Drop it 
+
+function dropElements(arr, func) {
+    var returnArr = [];
+    var count = 0;
+    var len = arr.length;
+
+    while (!func(arr[0]) || count >= len) {
+        arr.shift();
+        count++;
+    }
+    return arr;
+}
+
+//=======================================
+
