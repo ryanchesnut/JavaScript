@@ -497,3 +497,52 @@ function dropElements(arr, func) {
 
 //=======================================
 
+//Steamroller
+
+function steamrollArray(arr) {
+    var steamArray = [];
+    // I'm a steamroller, baby
+    arr.forEach(function (elem) {
+        if (Array.isArray(elem)) {
+            var subArray = steamrollArray(elem);
+            steamArray = steamArray.concat(subArray);
+        }
+        else {
+            steamArray.push(elem);
+        }
+    });
+    return steamArray;
+}
+
+//=======================================
+
+//Binary Agents
+
+function binaryAgent(str) {
+    str = str.split(' ');
+    var endString = '';
+    for (var i = 0; i < str.length; i++) {
+        var code = convertBinaryToTen(str[i]);
+        var char = String.fromCharCode(code);
+        endString += char;
+    }
+    console.log(endString);
+
+    return endString;
+}
+
+function convertBinaryToTen(str) {
+    str = str.split('');
+    var sum = 0;
+    var index = 0;
+
+    for (var i = str.length - 1; i >= 0; i--) {
+        sum += (Number(str[index]) * Math.pow(2, i));
+        index++;
+    }
+
+    return sum;
+}
+//=======================================
+
+
