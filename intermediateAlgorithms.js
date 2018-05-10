@@ -545,4 +545,61 @@ function convertBinaryToTen(str) {
 }
 //=======================================
 
+// Everything Be True
 
+function truthCheck(collection, pre) {
+
+    var bool = true;
+
+    for (var x in collection) {
+        if (collection[x][pre] == undefined) {
+            bool = false;
+        }
+        else if (collection[x][pre] == null) {
+            bool = false;
+        }
+        else if (collection[x][pre] == '') {
+            bool = false;
+        }
+        else if (typeof collection[x][pre] === 'number' && isNaN(collection[x][pre])) {
+            bool = false;
+        }
+    }
+    return bool;
+}
+//=======================================
+
+// Arguments Optional
+
+function addTogether() {
+    var arr = Array.from(arguments);
+    console.log(arr);
+    var sum = 0;
+    if (arr.length == 1) {
+        if (typeof arr[0] !== 'number') {
+            return undefined;
+        }
+        else {
+            return function (x) {
+                if (typeof x !== 'number') {
+                    return undefined;
+                }
+                else {
+                    return x + arr[0];
+                }
+            };
+        }
+    }
+    else {
+        for (var i = 0; i < arr.length; i++) {
+            console.log(typeof arr[i]);
+            if (typeof arr[i] !== 'number') {
+                return undefined;
+            }
+            else {
+                sum += arr[i];
+            }
+        }
+    }
+    return sum;
+}
